@@ -1,5 +1,6 @@
 # README
 
+# Run App
 ```
 docker-compose up
 ```
