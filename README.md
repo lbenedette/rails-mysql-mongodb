@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+docker-compose up
+```
 
-Things you may want to cover:
+# Setup
 
-* Ruby version
+```
+docker exec -it two-mongodb bash
+```
+```
+mongo -u root -p root
+```
+```
+use two-mongodb;
+db.createUser({
+    user: "user",
+    pwd: "password",
+    roles: [{role: "readWrite", db: "two-mongodb"}]
+});
+db.createCollection("event_logs");
+db.event_logs.insert({name: "test"});
+exit;
+```
 
-* System dependencies
+# TODO
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* [ ] Add a config file to connect with mongodb
+* [ ] Create a repository to wrap the mongo operations
+* [ ] Create a better document class for EventLog
+* [ ] Tests
