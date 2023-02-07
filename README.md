@@ -5,7 +5,15 @@
 docker-compose up
 ```
 
-# Setup
+# Setup MySql
+```
+docker exec -it two-db bash
+```
+```
+rails db:create db:migrate
+```
+
+# Setup MongoDb
 
 ```
 docker exec -it two-mongodb bash
